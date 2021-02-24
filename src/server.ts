@@ -1,5 +1,13 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+import 'reflect-metadata';
 import express from 'express';
+import './database/index.ts';
+import { router } from './routes';
 
 const app = express();
 
-app.listen(3333, () => console.log('Server is running!! :D'))
+app.use(express.json());
+app.use(router);
+
+app.listen(3333);
